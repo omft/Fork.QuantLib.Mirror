@@ -2893,5 +2893,12 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project=".\Build.props" Condition="Exists('.\Build.props')" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\om.QuantLib\packages\boost.1.87.0\build\boost.targets" Condition="Exists('..\om.QuantLib\packages\boost.1.87.0\build\boost.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\om.QuantLib\packages\boost.1.87.0\build\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\om.QuantLib\packages\boost.1.87.0\build\boost.targets'))" />
+  </Target>
 </Project>
