@@ -38,6 +38,7 @@
     <ProjectName>QuantLib</ProjectName>
     <ProjectGuid>{AD0A27DA-91DA-46A2-ACBD-296C419ED3AA}</ProjectGuid>
     <RootNamespace>QuantLib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="QuantLib.props" />
@@ -70,6 +71,7 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -2878,8 +2880,18 @@
     <ClCompile Include="ql\timegrid.cpp" />
     <ClCompile Include="ql\version.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project=".\Build.props" Condition="Exists('.\Build.props')" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\om.QuantLib.Test\packages\boost.1.87.0\build\boost.targets" Condition="Exists('..\om.QuantLib.Test\packages\boost.1.87.0\build\boost.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\om.QuantLib.Test\packages\boost.1.87.0\build\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\om.QuantLib.Test\packages\boost.1.87.0\build\boost.targets'))" />
+  </Target>
 </Project>
