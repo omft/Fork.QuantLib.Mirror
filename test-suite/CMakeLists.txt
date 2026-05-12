@@ -17,6 +17,7 @@ set(QL_TEST_SOURCES
     blackdeltacalculator.cpp
 	blackcalculator.cpp
     blackformula.cpp
+    blackvolsurfacedelta.cpp
     bondforward.cpp
     bonds.cpp
     brownianbridge.cpp
@@ -67,10 +68,12 @@ set(QL_TEST_SOURCES
     fdmlinearop.cpp
     fdsabr.cpp
     fittedbonddiscountcurve.cpp
+    floatfloatswap.cpp
     forwardoption.cpp
     forwardrateagreement.cpp
     functions.cpp
     fxforward.cpp
+    g2process.cpp
     garch.cpp
     gaussianquadratures.cpp
     gjrgarchmodel.cpp
@@ -90,6 +93,7 @@ set(QL_TEST_SOURCES
     instruments.cpp
     integrals.cpp
     interestrates.cpp
+    interpolatedsmilesection.cpp
     interpolations.cpp
     jumpdiffusion.cpp
     lazyobject.cpp
@@ -111,6 +115,7 @@ set(QL_TEST_SOURCES
     mersennetwister.cpp
     money.cpp
     multipleresetscoupons.cpp
+    multipleresetsswap.cpp
     noarbsabr.cpp
     normalclvmodel.cpp
     nthorderderivativeop.cpp
@@ -128,6 +133,7 @@ set(QL_TEST_SOURCES
     pathgenerator.cpp
     period.cpp
     perpetualfutures.cpp
+    piecewiseblackvariancesurface.cpp
     piecewiseyieldcurve.cpp
     piecewisezerospreadedtermstructure.cpp
     preconditions.cpp
